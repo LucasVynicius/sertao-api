@@ -27,7 +27,6 @@ public class User implements Serializable {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Size(min = 8, max = 50, message = "A Senha deve conter no minimo 8 digitos")
     @Column(name = "senha", nullable = false)
     private String password;
 
