@@ -2,6 +2,7 @@ package br.com.sertaodata.sertaoapi.controller;
 
 import br.com.sertaodata.sertaoapi.dtos.CreatePropertyRequest;
 import br.com.sertaodata.sertaoapi.dtos.PropertyCreatedDTO;
+import br.com.sertaodata.sertaoapi.dtos.PropertyResponse;
 import br.com.sertaodata.sertaoapi.model.Property;
 import br.com.sertaodata.sertaoapi.service.PropertyService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class PropertyController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Property getPropertyId(@PathVariable Long id){
-        return propertyService.getPropertyTheId(id);
+    public PropertyResponse getPropertyId(@PathVariable Long id){
+        return propertyService.getPropertyById(id);
     }
 }

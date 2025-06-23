@@ -27,7 +27,7 @@ public class userController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public User getUserId(@PathVariable Long id){
-        return userService.getUserTheId(id);
+        return userService.getUserById(id);
     }
 
     @GetMapping

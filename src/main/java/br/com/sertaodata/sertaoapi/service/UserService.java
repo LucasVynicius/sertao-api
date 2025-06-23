@@ -12,7 +12,7 @@ public interface UserService {
 
     UserCreatedDTO createUser(CreateUserRequest userDto);
 
-    User getUserTheId(Long id);
+    User getUserById(Long id);
 
     List<User> getUser();
 

@@ -1,5 +1,6 @@
 package br.com.sertaodata.sertaoapi.service;
 
+import br.com.sertaodata.sertaoapi.dtos.PropertyResponse;
 import br.com.sertaodata.sertaoapi.model.User;
 import br.com.sertaodata.sertaoapi.dtos.CreatePropertyRequest;
 import br.com.sertaodata.sertaoapi.dtos.PropertyCreatedDTO;
@@ -42,8 +43,19 @@ public class PropertyServiceImpl implements PropertyService{
     }
 
     @Override
-    public Property getPropertyTheId(Long id) {
-        return propertyRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Propriedade não encontrada"));
+    public PropertyResponse getPropertyById(Long id) {
+        Property property = propertyRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Propriedade não encontrada"));
+
+        return new PropertyResponse(
+                property.getId(),
+                property.getName(),
+                property.getMunicipality(),
+                property.getState(),
+                property.getSizeInHectares(),
+                property.getOwner().getId(),
+                property.getOwner().getFullName()
+        );
     }
 
     @Override
