@@ -31,6 +31,6 @@ public class Property implements Serializable {
     private Double sizeInHectares;
 
     @ManyToOne
-    @Column(name = "proprietario", nullable = false)
+    @JoinColumn(name = "id_proprietario", nullable = false)
     private User owner;
 }
