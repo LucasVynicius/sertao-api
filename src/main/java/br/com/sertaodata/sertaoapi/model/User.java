@@ -5,8 +5,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -34,6 +35,7 @@ public class User implements Serializable {
     @Column(name = "tipo_usuario")
     private TypeUser typeUser;
 
+    @CreationTimestamp
     @Column(name = "data_cadastro")
     private LocalDateTime dateRegistration;
 }
